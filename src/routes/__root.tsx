@@ -72,13 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Focus Blocks — A calm daily planning workspace" },
+      { title: "Focus Blox — A calm daily planning workspace" },
       {
         name: "description",
         content:
           "Choose up to three priorities for today and reserve focused time for them. A quiet, intentional planning workspace that resets each day.",
       },
-      { property: "og:title", content: "Focus Blocks" },
+      { property: "og:title", content: "Focus Blox — A calm daily planning workspace" },
       {
         property: "og:description",
         content:
@@ -86,6 +86,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Focus Blox — A calm daily planning workspace" },
+      { name: "description", content: "Focus Blocks is a calm daily planner for intentional focus, not productivity optimization." },
+      { property: "og:description", content: "Focus Blocks is a calm daily planner for intentional focus, not productivity optimization." },
+      { name: "twitter:description", content: "Focus Blocks is a calm daily planner for intentional focus, not productivity optimization." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bf33a0bd-a126-47ee-97bf-ec16278189e3/id-preview-6f8a1fbd--a54e960a-d12b-4a95-8d06-707be16af975.lovable.app-1779668063237.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bf33a0bd-a126-47ee-97bf-ec16278189e3/id-preview-6f8a1fbd--a54e960a-d12b-4a95-8d06-707be16af975.lovable.app-1779668063237.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
