@@ -86,7 +86,7 @@ function Index() {
       start,
       end: start + 60,
       priorityId: pid,
-      interruptions: 0,
+
     });
   };
 
@@ -121,7 +121,7 @@ function Index() {
       end: tentative + 60,
       priorityId: null,
       label: "New block",
-      interruptions: 0,
+
     });
     if (id) {
       const created = { ...{
@@ -130,7 +130,7 @@ function Index() {
         end: tentative + 60,
         priorityId: null,
         label: "New block",
-        interruptions: 0,
+  
       } } as TimeBlock;
       setEditBlock(created);
     }
