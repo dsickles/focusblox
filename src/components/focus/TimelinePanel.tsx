@@ -70,7 +70,7 @@ export function TimelinePanel({
     return arr;
   }, []);
 
-  const nowVisible = now >= DAY_START && now <= DAY_END;
+  const nowVisible = now !== null && now >= DAY_START && now <= DAY_END;
 
   return (
     <section className="flex flex-col">
@@ -150,7 +150,7 @@ export function TimelinePanel({
         {nowVisible && (
           <div
             className="absolute left-0 right-0 z-20 flex items-center pointer-events-none"
-            style={{ top: (now - DAY_START) * PIXELS_PER_MINUTE }}
+            style={{ top: (now! - DAY_START) * PIXELS_PER_MINUTE }}
           >
             <div className="w-12 flex justify-end pr-2">
               <span className="text-[9px] font-medium text-accent tabular-nums">
