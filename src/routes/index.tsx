@@ -124,14 +124,14 @@ function Index() {
 
     });
     if (id) {
-      const created = { ...{
+      const created: TimeBlock = {
         id,
         start: tentative,
         end: tentative + 60,
         priorityId: null,
         label: "New block",
-  
-      } } as TimeBlock;
+        interruptions: 0,
+      };
       setEditBlock(created);
     }
   };
