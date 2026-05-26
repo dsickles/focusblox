@@ -109,7 +109,7 @@ function Index() {
   const handleAddPriority = (input: NewPriorityInput) => addPriority(input);
 
   const handleAddNonPriorityBlock = () => {
-    // Find the next free slot starting from "now" (or DAY_START), at least 30 minutes.
+    // Find the next free slot to seed the modal — user can edit before saving.
     const sorted = [...state.blocks].sort((a, b) => a.start - b.start);
     const nowMin = new Date().getHours() * 60 + new Date().getMinutes();
     const cursorStart = snap(Math.max(DAY_START, nowMin));
@@ -130,28 +130,36 @@ function Index() {
       return null;
     };
 
-    // Try from now first; if nothing, search from the start of the day.
-    const slot = findSlot(cursorStart) ?? findSlot(DAY_START);
-    if (!slot) return;
+    const slot = findSlot(cursorStart) ?? findSlot(DAY_START) ?? {
+      start: DAY_START,
+      end: DAY_START + 60,
+    };
 
-    const id = addBlock({
+    // Draft block — id "" signals "not yet persisted" to the modal/save handler.
+    setEditBlock({
+      id: "",
       start: slot.start,
       end: slot.end,
       priorityId: null,
-      label: "New block",
+      label: "",
+      interruptions: 0,
     });
-    if (id) {
-      const created: TimeBlock = {
-        id,
-        start: slot.start,
-        end: slot.end,
-        priorityId: null,
-        label: "New block",
-        interruptions: 0,
-      };
-      setEditBlock(created);
-    }
   };
+
+  const handleSaveBlock = (id: string, patch: Partial<TimeBlock>) => {
+    if (id) {
+      updateBlock(id, patch);
+      return;
+    }
+    addBlock({
+      start: patch.start ?? DAY_START,
+      end: patch.end ?? DAY_START + 60,
+      priorityId: patch.priorityId ?? null,
+      label: patch.label,
+      notes: patch.notes,
+    });
+  };
+
 
   return (
     <DndContext
