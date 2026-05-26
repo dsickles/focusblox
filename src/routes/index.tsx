@@ -109,25 +109,42 @@ function Index() {
   const handleAddPriority = (input: NewPriorityInput) => addPriority(input);
 
   const handleAddNonPriorityBlock = () => {
-    // Open edit modal on a fresh non-priority block at next free hour
-    const tentative = snap(
-      Math.max(
-        DAY_START,
-        new Date().getHours() * 60 + new Date().getMinutes(),
-      ),
-    );
+    // Find the next free slot starting from "now" (or DAY_START), at least 30 minutes.
+    const sorted = [...state.blocks].sort((a, b) => a.start - b.start);
+    const nowMin = new Date().getHours() * 60 + new Date().getMinutes();
+    const cursorStart = snap(Math.max(DAY_START, nowMin));
+
+    const findSlot = (from: number): { start: number; end: number } | null => {
+      let cursor = Math.max(from, DAY_START);
+      for (const b of sorted) {
+        if (b.end <= cursor) continue;
+        if (b.start >= cursor + 30) {
+          const end = Math.min(b.start, cursor + 60);
+          if (end - cursor >= 30) return { start: cursor, end };
+        }
+        cursor = Math.max(cursor, b.end);
+      }
+      if (cursor + 30 <= DAY_END) {
+        return { start: cursor, end: Math.min(DAY_END, cursor + 60) };
+      }
+      return null;
+    };
+
+    // Try from now first; if nothing, search from the start of the day.
+    const slot = findSlot(cursorStart) ?? findSlot(DAY_START);
+    if (!slot) return;
+
     const id = addBlock({
-      start: tentative,
-      end: tentative + 60,
+      start: slot.start,
+      end: slot.end,
       priorityId: null,
       label: "New block",
-
     });
     if (id) {
       const created: TimeBlock = {
         id,
-        start: tentative,
-        end: tentative + 60,
+        start: slot.start,
+        end: slot.end,
         priorityId: null,
         label: "New block",
         interruptions: 0,

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { minutesNow } from "@/lib/time";
 
 export const useCurrentMinutes = () => {
-  const [m, setM] = useState(() => minutesNow());
+  const [m, setM] = useState<number | null>(null);
   useEffect(() => {
     const tick = () => setM(minutesNow());
     tick();
