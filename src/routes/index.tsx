@@ -216,9 +216,10 @@ function Index() {
           block={editBlock}
           priorities={state.priorities}
           onClose={() => setEditBlock(null)}
-          onSave={(id, patch) => updateBlock(id, patch)}
+          onSave={handleSaveBlock}
           onDelete={removeBlock}
         />
+
       </div>
     </DndContext>
   );
