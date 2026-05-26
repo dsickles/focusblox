@@ -82,9 +82,11 @@ export function EditBlockModal({
       >
         <div className="flex justify-between items-start mb-6">
           <div>
-            <h2 className="font-serif text-2xl mb-0.5">Edit block</h2>
+            <h2 className="font-serif text-2xl mb-0.5">
+              {block.id ? "Edit block" : "Block time"}
+            </h2>
             <p className="text-xs text-muted-foreground">
-              Adjust reserved time.
+              {block.id ? "Adjust reserved time." : "Reserve a stretch of the day."}
             </p>
           </div>
           <button
@@ -96,6 +98,7 @@ export function EditBlockModal({
             <X className="size-4" />
           </button>
         </div>
+
 
         <div className="space-y-5">
           <div>
