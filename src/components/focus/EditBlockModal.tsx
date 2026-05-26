@@ -173,16 +173,21 @@ export function EditBlockModal({
         </div>
 
         <div className="mt-7 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => {
-              onDelete(block.id);
-              onClose();
-            }}
-            className="text-xs text-muted-foreground hover:text-destructive transition-colors"
-          >
-            Release this block
-          </button>
+          {block.id ? (
+            <button
+              type="button"
+              onClick={() => {
+                onDelete(block.id);
+                onClose();
+              }}
+              className="text-xs text-muted-foreground hover:text-destructive transition-colors"
+            >
+              Release this block
+            </button>
+          ) : (
+            <span />
+          )}
+
           <div className="flex items-center gap-2">
             <button
               type="button"
