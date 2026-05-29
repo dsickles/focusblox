@@ -68,6 +68,10 @@ export function TimelinePanel({
     const arr: number[] = [];
     for (let h = DAY_START / 60; h <= DAY_END / 60; h++) arr.push(h);
     return arr;
+  }, []);
+
+  const nowVisible = now !== null && now >= DAY_START && now <= DAY_END;
+
   return (
     <section className="flex flex-col">
       <header className="mb-12 flex items-end justify-between gap-6">
