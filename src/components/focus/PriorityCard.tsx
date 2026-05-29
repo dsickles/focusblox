@@ -35,13 +35,13 @@ export function PriorityCard({
         "group relative p-6 rounded-2xl transition-all duration-300",
         "touch-none select-none",
         priority.completed &&
-          "bg-surface/40 border border-border opacity-50 cursor-default",
+          "bg-surface/30 opacity-50 cursor-default",
         !priority.completed &&
           scheduled &&
-          "bg-surface border border-accent/25 ring-1 ring-accent/10 cursor-grab active:cursor-grabbing",
+          "bg-surface/60 ring-1 ring-accent/15 cursor-grab active:cursor-grabbing hover:bg-surface/80",
         !priority.completed &&
           !scheduled &&
-          "border border-dashed border-border hover:border-border-strong cursor-grab active:cursor-grabbing",
+          "bg-surface/30 hover:bg-surface/60 cursor-grab active:cursor-grabbing",
         isDragging && "opacity-40",
       )}
     >
