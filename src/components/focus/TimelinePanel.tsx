@@ -90,12 +90,9 @@ export function TimelinePanel({
           + Block time
         </button>
       </header>
-          + Block time
-        </button>
-      </header>
 
       {blocks.length === 0 && !isDraggingPriority && (
-        <p className="mb-6 text-sm text-muted-foreground italic">
+        <p className="mb-6 text-sm text-muted-foreground italic font-serif">
           Time is still unspoken for.
         </p>
       )}
