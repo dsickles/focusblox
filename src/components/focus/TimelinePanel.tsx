@@ -118,10 +118,10 @@ export function TimelinePanel({
               className="absolute left-0 right-0 flex items-start gap-3"
               style={{ top: offset }}
             >
-              <span className="w-12 -mt-2 text-[10px] font-medium text-muted-foreground/60 tabular-nums uppercase tracking-wider">
+              <span className="w-12 -mt-2 text-[10px] font-medium text-muted-foreground/50 tabular-nums uppercase tracking-wider">
                 {formatHourLabel(h)}
               </span>
-              <div className="flex-1 border-t border-border/60" />
+              <div className="flex-1 border-t border-border/40" />
             </div>
           );
         })}
@@ -132,7 +132,7 @@ export function TimelinePanel({
           return (
             <div
               key={`half-${h}`}
-              className="absolute left-14 right-0 border-t border-dashed border-border/30"
+              className="absolute left-14 right-0 border-t border-dashed border-border/20"
               style={{ top: offset }}
             />
           );
@@ -141,7 +141,7 @@ export function TimelinePanel({
         {/* Drag hover preview */}
         {isDraggingPriority && hoverMinutes !== null && (
           <div
-            className="absolute left-14 right-2 rounded-xl border-2 border-dashed border-accent bg-accent/10 pointer-events-none transition-all"
+            className="absolute left-14 right-2 rounded-xl border border-dashed border-accent/60 bg-accent/10 pointer-events-none transition-all"
             style={{
               top: (snap(hoverMinutes) - DAY_START) * PIXELS_PER_MINUTE,
               height: 60 * PIXELS_PER_MINUTE,
@@ -149,19 +149,20 @@ export function TimelinePanel({
           />
         )}
 
-        {/* Current time indicator */}
+        {/* Current time indicator — warm glow */}
         {nowVisible && (
           <div
             className="absolute left-0 right-0 z-20 flex items-center pointer-events-none"
             style={{ top: (now! - DAY_START) * PIXELS_PER_MINUTE }}
           >
             <div className="w-12 flex justify-end pr-2">
-              <span className="text-[9px] font-medium text-accent tabular-nums">
+              <span className="text-[9px] font-medium text-accent tabular-nums tracking-wider">
                 NOW
               </span>
             </div>
-            <div className="size-2 rounded-full bg-accent ring-4 ring-background -ml-1" />
-            <div className="h-px flex-1 bg-accent/40" />
+            <div className="size-2 rounded-full bg-accent ring-4 ring-background shadow-[0_0_12px_2px_color-mix(in_oklab,var(--accent)_45%,transparent)] -ml-1" />
+            <div className="h-px flex-1 bg-gradient-to-r from-accent/50 to-transparent" />
+          </div>
           </div>
         )}
 
