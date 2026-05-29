@@ -68,26 +68,28 @@ export function TimelinePanel({
     const arr: number[] = [];
     for (let h = DAY_START / 60; h <= DAY_END / 60; h++) arr.push(h);
     return arr;
-  }, []);
-
-  const nowVisible = now !== null && now >= DAY_START && now <= DAY_END;
-
   return (
     <section className="flex flex-col">
-      <header className="mb-10 flex items-end justify-between gap-6">
+      <header className="mb-12 flex items-end justify-between gap-6">
         <div>
-          <h2 className="font-serif text-4xl md:text-5xl leading-[1.05] mb-3 text-balance">
+          <p className="text-[10px] font-medium text-muted-foreground/70 uppercase tracking-[0.22em] mb-5">
+            Attention
+          </p>
+          <h2 className="font-serif text-4xl md:text-5xl leading-[1.05] mb-4 text-balance">
             When will you make time?
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-md text-pretty">
+          <p className="text-muted-foreground text-base md:text-lg max-w-md text-pretty leading-relaxed">
             Reserve focused time intentionally.
           </p>
         </div>
         <button
           type="button"
           onClick={onAddNonPriorityBlock}
-          className="hidden md:inline-flex items-center gap-2 text-xs font-medium text-muted-foreground hover:text-foreground border border-border hover:border-border-strong px-3 py-2 rounded-lg transition-colors whitespace-nowrap"
+          className="hidden md:inline-flex items-center gap-2 text-xs font-medium text-muted-foreground hover:text-foreground px-3 py-2 rounded-lg transition-colors whitespace-nowrap"
         >
+          + Block time
+        </button>
+      </header>
           + Block time
         </button>
       </header>
