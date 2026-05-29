@@ -10,11 +10,18 @@ export function ReflectionSection({
   onChange,
 }: ReflectionSectionProps) {
   return (
-    <section className="mt-24 pt-12 border-t border-border">
-      <h4 className="font-serif text-3xl italic mb-8">Evening reflection</h4>
-      <div className="grid md:grid-cols-2 gap-10">
+    <section className="relative mt-20 pt-16 bg-evening-fade rounded-t-[2rem] -mx-6 md:-mx-12 px-6 md:px-12 pb-4">
+      <header className="mb-10 max-w-md">
+        <p className="text-[10px] font-medium text-muted-foreground/70 uppercase tracking-[0.22em] mb-4">
+          Evening
+        </p>
+        <h4 className="font-serif text-3xl md:text-4xl italic leading-tight">
+          A moment to look back.
+        </h4>
+      </header>
+      <div className="grid md:grid-cols-2 gap-10 md:gap-14 max-w-4xl">
         <div className="space-y-3">
-          <label className="text-[10px] font-medium text-muted-foreground uppercase tracking-widest">
+          <label className="block font-serif italic text-base text-muted-foreground/90">
             What shaped your attention today?
           </label>
           <textarea
@@ -22,11 +29,11 @@ export function ReflectionSection({
             onChange={(e) => onChange({ shaped: e.target.value })}
             rows={4}
             placeholder="Thinking about…"
-            className="w-full bg-surface/50 border border-border rounded-xl p-4 text-sm focus:outline-none focus:border-accent/40 resize-none placeholder:text-muted-foreground/30 transition-colors leading-relaxed"
+            className="w-full bg-transparent border-0 border-b border-border/50 px-0 py-3 text-base leading-relaxed focus:outline-none focus:border-accent/40 resize-none placeholder:text-muted-foreground/30 placeholder:italic transition-colors"
           />
         </div>
         <div className="space-y-3">
-          <label className="text-[10px] font-medium text-muted-foreground uppercase tracking-widest">
+          <label className="block font-serif italic text-base text-muted-foreground/90">
             What pulled it away?
           </label>
           <textarea
@@ -34,11 +41,11 @@ export function ReflectionSection({
             onChange={(e) => onChange({ pulled: e.target.value })}
             rows={4}
             placeholder="Small distractions…"
-            className="w-full bg-surface/50 border border-border rounded-xl p-4 text-sm focus:outline-none focus:border-accent/40 resize-none placeholder:text-muted-foreground/30 transition-colors leading-relaxed"
+            className="w-full bg-transparent border-0 border-b border-border/50 px-0 py-3 text-base leading-relaxed focus:outline-none focus:border-accent/40 resize-none placeholder:text-muted-foreground/30 placeholder:italic transition-colors"
           />
         </div>
       </div>
-      <p className="mt-10 text-center text-[10px] font-medium text-muted-foreground/40 uppercase tracking-[0.2em]">
+      <p className="mt-16 text-center text-[10px] font-medium text-muted-foreground/40 uppercase tracking-[0.22em]">
         Tomorrow deserves fresh intention
       </p>
     </section>
