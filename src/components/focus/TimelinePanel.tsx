@@ -236,12 +236,12 @@ function BlockView({
   return (
     <div
       className={cn(
-        "absolute left-14 right-2 rounded-xl border group/block transition-shadow",
+        "absolute left-14 right-2 rounded-xl group/block transition-shadow",
         isPriority
           ? "border-l-2"
-          : "bg-surface/60 border border-border hover:border-border-strong",
+          : "bg-surface/50 hover:bg-surface/80",
         priority?.completed && "opacity-60",
-        resizing && "shadow-lg ring-2 ring-accent/30",
+        resizing && "shadow-lg ring-1 ring-accent/30",
       )}
       style={{
         top,
