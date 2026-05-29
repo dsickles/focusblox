@@ -163,7 +163,6 @@ export function TimelinePanel({
             <div className="size-2 rounded-full bg-accent ring-4 ring-background shadow-[0_0_12px_2px_color-mix(in_oklab,var(--accent)_45%,transparent)] -ml-1" />
             <div className="h-px flex-1 bg-gradient-to-r from-accent/50 to-transparent" />
           </div>
-          </div>
         )}
 
         {/* Blocks */}
