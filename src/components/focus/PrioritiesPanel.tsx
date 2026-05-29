@@ -1,4 +1,3 @@
-import { Plus } from "lucide-react";
 import { PriorityCard } from "./PriorityCard";
 import type { Priority, TimeBlock } from "@/lib/storage";
 
@@ -19,24 +18,45 @@ export function PrioritiesPanel({
 }: PrioritiesPanelProps) {
   const blocksFor = (id: string) => blocks.filter((b) => b.priorityId === id);
   const canAdd = priorities.length < 3;
+  const isEmpty = priorities.length === 0;
 
   return (
     <section className="flex flex-col">
-      <header className="mb-10">
-        <h1 className="font-serif text-4xl md:text-5xl leading-[1.05] mb-3 text-balance">
+      <header className="mb-12">
+        <p className="text-[10px] font-medium text-muted-foreground/70 uppercase tracking-[0.22em] mb-5">
+          Intention
+        </p>
+        <h1 className="font-serif text-4xl md:text-5xl leading-[1.05] mb-4 text-balance">
           What matters today?
         </h1>
-        <p className="text-muted-foreground text-base md:text-lg max-w-md text-pretty">
+        <p className="text-muted-foreground text-base md:text-lg max-w-md text-pretty leading-relaxed">
           Choose up to three priorities worth making space for.
         </p>
       </header>
 
-      <div className="space-y-4">
-        {priorities.length === 0 && (
-          <div className="p-8 rounded-2xl border border-dashed border-border">
-            <p className="text-muted-foreground italic">
-              Start with what actually matters today.
-            </p>
+      <div className="space-y-5">
+        {isEmpty && (
+          <div className="relative">
+            {/* Three faint placeholder lines — visual rhythm without clutter */}
+            <ol className="space-y-3">
+              {[0, 1, 2].map((i) => (
+                <li
+                  key={i}
+                  className="relative pl-10 py-5 border-b border-border/40 last:border-b-0"
+                >
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 font-serif italic text-2xl text-muted-foreground/25 tabular-nums">
+                    {i + 1}
+                  </span>
+                  <span className="block text-sm text-muted-foreground/40 italic">
+                    {i === 0
+                      ? "The one that matters most…"
+                      : i === 1
+                        ? "Something that asks for real attention…"
+                        : "A quieter thread to tend…"}
+                  </span>
+                </li>
+              ))}
+            </ol>
           </div>
         )}
 
@@ -54,21 +74,22 @@ export function PrioritiesPanel({
           <button
             type="button"
             onClick={onAdd}
-            className="w-full p-5 rounded-2xl border border-border flex items-center justify-center gap-2.5 text-muted-foreground hover:text-foreground hover:border-border-strong hover:bg-surface/40 transition-all group"
+            className="group w-full flex items-center gap-4 pt-6 text-left"
           >
-            <Plus className="size-4 transition-transform group-hover:scale-110" strokeWidth={2} />
-            <span className="font-medium text-sm">
-              {priorities.length === 0
-                ? "Add your first priority"
+            <span className="h-px flex-1 bg-border/60 group-hover:bg-border-strong transition-colors" />
+            <span className="font-serif italic text-base text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
+              {isEmpty
+                ? "Name your first priority"
                 : priorities.length === 2
-                  ? "Add a third priority"
-                  : "Add another priority"}
+                  ? "Add a third"
+                  : "Add another"}
             </span>
+            <span className="h-px flex-1 bg-border/60 group-hover:bg-border-strong transition-colors" />
           </button>
         )}
 
         {!canAdd && (
-          <p className="text-xs text-muted-foreground/60 text-center italic mt-4">
+          <p className="text-xs text-muted-foreground/50 text-center italic mt-6 font-serif">
             Three is enough. Make space for them.
           </p>
         )}
