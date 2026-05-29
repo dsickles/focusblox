@@ -175,9 +175,6 @@ function Index() {
       <div className="min-h-screen bg-background text-foreground">
         <TopBar />
 
-        <main className="max-w-7xl mx-auto px-6 md:px-12 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 pt-6">
-            <div className="lg:col-span-5">
         <main className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-8 md:pt-12">
             <div className="lg:col-span-6 xl:col-span-5">
@@ -203,6 +200,8 @@ function Index() {
               />
             </div>
           </div>
+
+          <ReflectionSection
             reflection={state.reflection}
             onChange={setReflection}
           />
