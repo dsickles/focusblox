@@ -1,6 +1,6 @@
 export const SNAP_MINUTES = 15;
-export const DAY_START = 6 * 60; // 6:00
-export const DAY_END = 22 * 60; // 22:00
+export const DAY_START = 8 * 60; // 8:00
+export const DAY_END = 20 * 60; // 20:00
 export const PIXELS_PER_MINUTE = 1.15; // 1 hour ≈ 69px — compressed for calmer composition
 
 export const snap = (minutes: number, step = SNAP_MINUTES) =>

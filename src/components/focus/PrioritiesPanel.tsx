@@ -52,7 +52,7 @@ export function PrioritiesPanel({
                       ? "The one that matters most…"
                       : i === 1
                         ? "Something that asks for real attention…"
-                        : "A quieter thread to tend…"}
+                        : "One more thing worth your focus."}
                   </span>
                 </li>
               ))}
