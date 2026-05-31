@@ -177,13 +177,17 @@ function Index() {
 
         <main className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-8 md:pt-12">
-            <div className="lg:col-span-6 xl:col-span-5">
+            <div className="lg:col-span-6 xl:col-span-5 flex flex-col">
               <PrioritiesPanel
                 priorities={state.priorities}
                 blocks={state.blocks}
                 onAdd={() => setAddOpen(true)}
                 onToggleComplete={togglePriorityComplete}
                 onRemove={removePriority}
+              />
+              <ReflectionSection
+                reflection={state.reflection}
+                onChange={setReflection}
               />
             </div>
             <div className="lg:col-span-6 xl:col-span-7 lg:border-l lg:border-border/40 lg:pl-12 xl:pl-16">
@@ -200,11 +204,6 @@ function Index() {
               />
             </div>
           </div>
-
-          <ReflectionSection
-            reflection={state.reflection}
-            onChange={setReflection}
-          />
         </main>
 
         <AddPriorityModal
