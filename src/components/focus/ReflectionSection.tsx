@@ -13,13 +13,13 @@ export function ReflectionSection({
     <section className="mt-16 pt-10 border-t border-border/30">
       <header className="mb-8">
         <p className="text-[10px] font-medium text-muted-foreground/70 uppercase tracking-[0.22em] mb-3">
-          Evening
+          Reflection
         </p>
         <h4 className="font-serif text-2xl md:text-3xl italic leading-tight">
           A moment to look back.
         </h4>
       </header>
-      <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+      <div className="flex flex-col gap-8">
         <div className="space-y-2">
           <label className="block font-serif italic text-sm text-muted-foreground/90">
             What shaped your attention today?
