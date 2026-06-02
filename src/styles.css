@@ -40,46 +40,7 @@
 :root {
   --radius: 0.75rem;
 
-  /* Warm off-white paper light mode */
-  --background: oklch(0.975 0.005 80);
-  --foreground: oklch(0.22 0.008 80);
-  --surface: oklch(0.955 0.007 80);
-  --surface-elevated: oklch(0.985 0.004 80);
-  --card: oklch(0.96 0.006 80);
-  --card-foreground: oklch(0.22 0.008 80);
-  --popover: oklch(0.985 0.004 80);
-  --popover-foreground: oklch(0.22 0.008 80);
-  --primary: oklch(0.22 0.008 80);
-  --primary-foreground: oklch(0.975 0.005 80);
-  --secondary: oklch(0.93 0.007 80);
-  --secondary-foreground: oklch(0.22 0.008 80);
-  --muted: oklch(0.93 0.007 80);
-  --muted-foreground: oklch(0.5 0.01 80);
-  --accent: oklch(0.66 0.07 130);
-  --accent-foreground: oklch(0.2 0.02 130);
-  --accent-soft: oklch(0.92 0.03 130);
-  --destructive: oklch(0.55 0.16 25);
-  --destructive-foreground: oklch(0.98 0.005 80);
-  --border: oklch(0.91 0.006 80);
-  --border-strong: oklch(0.85 0.008 80);
-  --input: oklch(0.91 0.006 80);
-  --ring: oklch(0.66 0.07 130);
-
-  --warm-glow: radial-gradient(
-    ellipse 80% 50% at 50% 0%,
-    color-mix(in oklab, var(--accent) 6%, transparent) 0%,
-    transparent 70%
-  );
-  --evening-fade: linear-gradient(
-    to bottom,
-    transparent 0%,
-    color-mix(in oklab, var(--accent) 3%, transparent) 40%,
-    color-mix(in oklab, var(--accent) 5%, transparent) 100%
-  );
-}
-
-.dark {
-  /* Warm charcoal dark mode (default) */
+  /* Warm charcoal dark mode (only) */
   --background: oklch(0.205 0.005 70);
   --foreground: oklch(0.92 0.005 80);
   --surface: oklch(0.23 0.006 70);
@@ -116,6 +77,7 @@
     color-mix(in oklab, oklch(0.28 0.05 30) 28%, transparent) 100%
   );
 }
+
 
 @layer base {
   * {
